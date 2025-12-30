@@ -1,0 +1,14 @@
+robosuite==1.4.0
+mujoco
+numpy<2.0
+torch          # 如果用 pip gpu wheel 或 conda 安装则不在此固定
+torchvision
+torchaudio
+opencv-python-headless
+termcolor
+imageio
+imageio-ffmpeg
+stable-baselines3[extra]
+sb3-contrib
+gym>=0.21
+tensorboard
