@@ -1,0 +1,21 @@
+name: robosuite
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy<2.0
+  - mujoco              # from conda-forge
+  - robosuite=1.4.0     # installed via pip later or pip install robosuite==1.4.0
+  - pip
+  - pip:
+      - robosuite==1.4.0
+      - opencv-python-headless
+      - termcolor
+      - imageio
+      - imageio-ffmpeg
+      - stable-baselines3[extra]
+      - gym>=0.21
+      - tensorboard

@@ -1,3 +1,44 @@
+# 环境安装
+- Python: **3.9.x**（conda 环境）
+- Robosuite: **1.4.0**
+- MuJoCo: 安装自 **conda-forge**（建议 `mujoco 2.3.x`）
+- NumPy: **< 2.0**（建议 `1.26.x`）
+- PyTorch: **可用 GPU**：推荐 `pytorch + pytorch-cuda=11.8`（或 pip cu118 wheel）  
+  或 **CPU**：pip/conda CPU 版本
+- OpenCV: **opencv-python-headless**
+- 其他：`termcolor, imageio, imageio-ffmpeg, stable-baselines3, gym>=0.21, tensorboard`
+
+## 2. 推荐的 conda 环境（一键方案）
+> 推荐用于服务器 / GPU 实验（conda 管理依赖，兼容性强）
+
+**environment.yml**
+
+```yaml
+name: robosuite
+channels:
+  - conda-forge
+  - pytorch
+  - nvidia
+  - defaults
+dependencies:
+  - python=3.9
+  - numpy<2.0
+  - mujoco              # from conda-forge
+  - robosuite=1.4.0     # installed via pip later or pip install robosuite==1.4.0
+  - pip
+  - pip:
+      - robosuite==1.4.0
+      - opencv-python-headless
+      - termcolor
+      - imageio
+      - imageio-ffmpeg
+      - stable-baselines3[extra]
+      - gym>=0.21
+      - tensorboard
+```
+>（可选）安装 intel-openmp（若出现 iJIT_NotifyEvent 或 OpenMP 符号问题）
+conda install -y -c intel intel-openmp
+
 # robosuite_training
 
 目的：在 Robosuite（Panda / Lift 等单臂操作任务）上做论文级的机器人 RL 研究。  
